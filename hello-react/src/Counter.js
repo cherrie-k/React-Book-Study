@@ -28,6 +28,8 @@ const Counter2 = () => {
   );
 };
 
+// 간이 카운터 끝
+
 class Counter extends Component {
   state = {
     number: 0,
@@ -59,4 +61,4 @@ class Counter extends Component {
   }
 }
 
-export default Counter2;
+export default Counter;
