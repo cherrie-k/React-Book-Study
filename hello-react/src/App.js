@@ -4,7 +4,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import EventPractice from './EventPractice';
 import Counter2 from './Counter';
 import MyComponent from './MyComponent';
-import Input from './Input';
+import Input2 from './Input';
 
 const App = () => {
   return (
@@ -19,7 +19,7 @@ const App = () => {
         <Route path="/" element={<MyComponent />} />
         <Route path="/eventpractice" element={<EventPractice />} />
         <Route path="/counter" element={<Counter2 />} />
-        <Route path="/input" element={<Input />} />
+        <Route path="/input" element={<Input2 />} />
       </Routes>
     </div>
   );
