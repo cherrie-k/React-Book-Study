@@ -2,9 +2,9 @@ import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 
 import EventPractice from './EventPractice';
-import Counter2 from './Counter';
+import Counter from './Counter';
 import MyComponent from './MyComponent';
-import Input2 from './Input';
+import Input2 from './outsides/Input';
 
 const App = () => {
   return (
@@ -18,7 +18,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<MyComponent />} />
         <Route path="/eventpractice" element={<EventPractice />} />
-        <Route path="/counter" element={<Counter2 />} />
+        <Route path="/counter" element={<Counter />} />
         <Route path="/input" element={<Input2 />} />
       </Routes>
     </div>
