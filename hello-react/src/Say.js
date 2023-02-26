@@ -5,6 +5,7 @@ const Say = () => {
   const [message, setMessage] = useState('');
   // useState 함수의 인자에는 상태의 초깃값을 넣어줌. 참고로 클래스형 컴포에서 state의 초기값은 객체 형태여야 하지만 useState은 값의 형태가 자유임.
   // 함수를 호출하면 배열을 반환하는데, 첫 원소(message)는 현재 상태, 두번째 원소(setMessage)는 상태를 바꾸어주는 함수(setter 함수라 부름). 이름은 자유.
+  // state 값을 바꿔야 할 때는 반드시 setState 혹은 useState을 통해 전달받은 세터 함수를 사용해야 함
 
   const onClickEnter = () => setMessage('안녕하세요!');
   // 화살표 함수를 썼지만 따로 {}을 열어주지 않았으니 연산한 값을 그대로 반환한다는 의미..?
