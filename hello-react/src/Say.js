@@ -3,6 +3,7 @@ import { useState } from 'react';
 const Say = () => {
   const [message, setMessage] = useState('');
   const onClickEnter = () => setMessage('안녕하세요!');
+  // 화살표 함수를 썼지만 따로 {}을 열어주지 않았으니 연산한 값을 그대로 반환한다는 의미..?
   const onClickLeave = () => setMessage('안녕히가세요!');
 
   const [color, setColor] = useState('black');
