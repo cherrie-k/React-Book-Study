@@ -6,6 +6,7 @@ import Counter from './Counter';
 import MyComponent from './MyComponent';
 import Input2 from './outsides/Input';
 import UserList from './outsides/List';
+import Say from './Say';
 
 // JSX는 자바스크립트의 확장 문법. 코드 번들링 과정에서 '바벨'을 사용해서 일반 js 형태의 코드로 변환.
 // 복수의 JSX 컴포넌트는 반드시 부모 요소 하나로 감싸져 있어야 함. 컴포넌트 내부는 하나의 DOM 트리 구조로 이루어져야 한다는 규칙이 있기 때문.
@@ -17,13 +18,14 @@ const App = () => {
         <Link to="/"> MyComponent </Link> |
         <Link to="/eventpractice"> Event Prtc </Link> |
         <Link to="/counter"> Counter </Link> | <Link to="/input"> Input </Link>{' '}
-        |<Link to="/list"> List </Link> |
+        |<Link to="/say"> Say </Link> | <Link to="/list"> List </Link> |
       </nav>
       <Routes>
-        <Route path="/" element={<MyComponent />} />
+        <Route path="/" element={<MyComponent favoriteNumber={777} />} />
         <Route path="/eventpractice" element={<EventPractice />} />
         <Route path="/counter" element={<Counter />} />
         <Route path="/input" element={<Input2 /> /*'self-closing tag'*/} />
+        <Route path="/say" element={<Say />} />
         <Route path="/list" element={<UserList />} />
       </Routes>
     </div>
