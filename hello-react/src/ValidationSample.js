@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { React, Component } from 'react';
 import './ValidationSample.css';
 
 class ValidationSample extends Component {
@@ -51,4 +51,26 @@ class ValidationSample extends Component {
   }
 }
 
-export default ValidationSample;
+// export default ValidationSample;
+
+class RefSample extends Component {
+  // 컴포넌트 내부에서 멤버 변수로 React.createRef()를 담아줘야 함
+  // 그리고 해당 멤버 변수를 ref를 달고자하는 요소에 ref props로 넣어주면 ref 설정 완료 !
+  input = React.createRef();
+
+  handleFocus = () => {
+    // 설정한 뒤 나중에 ref 설정해준 DOM에 접근하려면 this.input.current를 조회
+    // 뒷부분에 .current를 넣어주는게 콜백 함수를 사용할 때와의 차이점
+    this.input.current.focus();
+  };
+
+  render() {
+    return (
+      <div>
+        <input ref={this.input} />
+      </div>
+    );
+  }
+}
+
+export default RefSample;
