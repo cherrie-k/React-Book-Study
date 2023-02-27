@@ -6,6 +6,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+// id가 root인 요소에 리액트 컴포넌트를 렌더링해라~!
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
