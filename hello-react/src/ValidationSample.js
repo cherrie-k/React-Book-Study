@@ -21,12 +21,17 @@ class ValidationSample extends Component {
       // 0000일 때 background-color이 연초록색으로 바뀜
       validated: this.state.password === '0000',
     });
+    // onClick 이벤트 발생시 input에 포커스 주도록함
+    // 이제 this.input이 컴포넌트 내부의 input 요소를 가리키고 있어서 일반 DOM 다루듯이 코드 작성 가능
+    this.input.focus();
   };
 
   render() {
     return (
       <div>
         <input
+          // 콜백 함수를 이용해서 ref 달음
+          ref={(ref) => (this.input = ref)}
           type="password"
           value={this.state.password}
           // onChange 이벤트 발생시 handleChange 호출해서 state의 password 값 업데이트.
@@ -51,8 +56,9 @@ class ValidationSample extends Component {
   }
 }
 
-// export default ValidationSample;
+export default ValidationSample;
 
+/* createRef 사용 예시
 class RefSample extends Component {
   // 컴포넌트 내부에서 멤버 변수로 React.createRef()를 담아줘야 함
   // 그리고 해당 멤버 변수를 ref를 달고자하는 요소에 ref props로 넣어주면 ref 설정 완료 !
@@ -67,10 +73,12 @@ class RefSample extends Component {
   render() {
     return (
       <div>
-        <input ref={this.input} />
+        <input ref = {(ref) => {this.input=ref}} />   // 1. 콜백 함수를 통한 ref 설정
+        <input ref={this.input} />                    // 2. createRef를 통한 ref 설정
       </div>
     );
   }
 }
 
 export default RefSample;
+*/
