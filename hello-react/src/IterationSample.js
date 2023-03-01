@@ -15,7 +15,37 @@ const IterationSample = () => {
   const [inputText, setInputText] = useState('');
   const [nextId, setNextId] = useState(5); // 새로운 항목을 추가할 때 사용할 id
 
-  /* const nameList = names.map((name, index) => (
+  // onChange 함수 추가
+  const onChange = (e) => setInputText(e.target.value);
+
+  const onClick = () => {
+    // 배열 내장 함수 concat 사용해서 새로운 항목을 추가한 배열 생성.
+    // concat() 함수는 두 개의 문자열/배열을 하나의 문자열/배열로 만들어주는 역할 수행.
+    const nextNames = names.concat({
+      id: nextId, // nextId 값을 id로 설정
+      text: inputText,
+    });
+    setNextId(nextId + 1); // 클릭 될 때 마다 nextId 값에 1 더해줌
+    // setNaems를 통해 상태 업데이트
+    setNames(nextNames); // 버튼 클릭시 names 값을 업데이트함
+    setInputText(''); // 버튼 클릭시 inputText를 비움
+  };
+
+  const namesList = names.map((name) => <li key={name.id}>{name.text}</li>);
+  // 이전과 달리 key 값으로 index 대신 name.id로 지정. 이전 nameList는 젤 밑에 있움
+
+  return (
+    <>
+      <input value={inputText} onChange={onChange} />
+      <button onClick={onClick}>추가</button>
+      <ul>{namesList}</ul>
+    </>
+  );
+};
+
+export default IterationSample;
+
+/* const nameList = names.map((name, index) => (
     <li
       key={
         index
@@ -24,10 +54,3 @@ const IterationSample = () => {
       {name}
     </li>
   )); */
-  const nameList = names.map((name) => <li key={name.id}>{name.text}</li>);
-  // 이전과 달리 key 값으로 index 대신 name.id로 지정.
-
-  return <ul>{nameList}</ul>;
-};
-
-export default IterationSample;
