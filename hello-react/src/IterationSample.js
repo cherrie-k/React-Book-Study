@@ -31,11 +31,27 @@ const IterationSample = () => {
     setInputText(''); // 버튼 클릭시 inputText를 비움
   };
 
-  const namesList = names.map((name) => <li key={name.id}>{name.text}</li>);
+  const onRemove = (id) => {
+    // 배열 내장함수 filter를 통해서 목표 id를 가진 애 제외한 배열을 다시 생성.
+    const nextNames = names.filter((name) => name.id !== id);
+    setNames(nextNames); // onRemove시 names 값을 업데이트함
+  };
+
+  const namesList = names.map((name) => (
+    <li
+      key={name.id}
+      onDoubleClick={() =>
+        onRemove(name.id)
+      } /* onDoubleClick시 onRemove 함수 수행 */
+    >
+      {name.text}
+    </li>
+  ));
   // 이전과 달리 key 값으로 index 대신 name.id로 지정. 이전 nameList는 젤 밑에 있움
 
   return (
     <>
+      <h3>더블클릭시 원소 삭제됨</h3>
       <input value={inputText} onChange={onChange} />
       <button onClick={onClick}>추가</button>
       <ul>{namesList}</ul>
