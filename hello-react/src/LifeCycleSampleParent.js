@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import LifeCycleSample from './LifeCycleSample';
+import ErrorBoundary from './ErrorBoundary';
 
 // 랜덤 색상 생성
 function getRandomColor() {
@@ -34,7 +35,9 @@ class LifeCycleSampleParent extends Component {
         </div>
         <div>마지막 수가 4일 때 업데이트 취소하는지도 확인해보자!</div>
         <button onClick={this.handleClick}> 랜덤 색상 </button>
-        <LifeCycleSample color={this.state.color} />
+        <ErrorBoundary>
+          <LifeCycleSample color={this.state.color} />
+        </ErrorBoundary>
       </div>
     );
   }
