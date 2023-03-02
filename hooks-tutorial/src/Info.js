@@ -26,14 +26,34 @@ const Info = () => {
 
   /* 3. useEffect를 특정 값이 업데이트될 때만 실행하는 경우
     // -> 함수의 두 번째 파라미터로 전달되는 배열 안에 검사하고 싶은 값 넣어줌
+    useEffect(
+      () => {
+        console.log(name);
+      },
+      [name] //useEffect 함수의 두 번째 파라미터로 전달되는 배열 안에 검사하고 싶은 값 넣어주면 특정 값이 업데이트될 때만 useEffect가 실행됨
+      // 배열 안에는 useState를 통해 관리하고 있는 상태를 넣어줘도 되고, props로 전달받은 값을 넣어줘도 됨
+      );
   */
-  useEffect(
-    () => {
+
+  /* 뒷정리(cleanup) -> 컴포넌트가 언마운트 되기 전이나 업데이트되기 전에 어떠한 작업을 수행하고 싶다면 이를 활용함.*/
+  useEffect(() => {
+    console.log("effect");
+    console.log(name);
+    return () => {
+      console.log("cleanup");
       console.log(name);
-    },
-    [name] //useEffect 함수의 두 번째 파라미터로 전달되는 배열 안에 검사하고 싶은 값 넣어주면 특정 값이 업데이트될 때만 useEffect가 실행됨
-    // 배열 안에는 useState를 통해 관리하고 있는 상태를 넣어줘도 되고, props로 전달받은 값을 넣어줘도 됨
-  );
+    };
+  }, [name]);
+
+  /*
+    만약 오직 언마운트될 때만 뒷정리 함수를 호출하고 싶다면, useEffect 함수의 두 번째 파라미터에 비어있는 배열을 넣으면 된다!
+    useEffect(() => {
+    console.log("effect");
+    return () => {
+      console.log("cleanup");
+    };
+  }, []);
+  */
 
   const onChangeName = (e) => {
     // 세터 함수 setName을 통한 state 변경

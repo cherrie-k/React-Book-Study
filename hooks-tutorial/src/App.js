@@ -1,7 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
 
 import Counter from "./Counter";
-import Info from "./Info";
+import InfoParent from "./InfoParent";
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
       </nav>
       <Routes>
         <Route path="/" element={<Counter />} />
-        <Route path="/info" element={<Info />} />
+        <Route path="/info" element={<InfoParent />} />
       </Routes>
     </div>
   );
