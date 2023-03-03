@@ -1,24 +1,25 @@
 // useReducer를 사용한 Info 컴포넌트이다!
 
+// 이제 useReducer 대신 useInputs.js 내에 있는 커스텀 Hook 사용!
+/*
 import { useReducer } from "react";
-
 function reducer(state, action) {
   return {
     ...state,
     [action.name]: action.value,
   };
 }
+*/
+
+import useInputs from "./useInputs";
 
 const Info2 = () => {
-  const [state, dispatch] = useReducer(reducer, {
+  const [state, onChange] = useInputs({
     name: "",
     nickname: "",
   });
 
   const { name, nickname } = state;
-  const onChange = (e) => {
-    dispatch(e.target);
-  };
 
   return (
     <div>
