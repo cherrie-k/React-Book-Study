@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useRef } from "react";
 
 const getAverage = (numbers) => {
   console.log("평균값 계산 중..");
@@ -11,6 +11,9 @@ const getAverage = (numbers) => {
 const Average = () => {
   const [list, setList] = useState([]); // 초기값이 빈 배열임
   const [number, setNumber] = useState("");
+
+  // useRef를 사용해서 ref를 설정하면 useRef를 통해 만든 객체 안의 current 값이 실제 엘리먼트를 가리킴.
+  const inputEl = useRef(null);
 
   /* useCallback으로 최적화 하기 전 onChange
   const onChange = (e) => {
@@ -35,6 +38,7 @@ const Average = () => {
     const nextList = list.concat(parseInt(number));
     setList(nextList);
     setNumber("");
+    inputEl.current.focus();
   }, [number, list]); // number 혹은 list가 바뀌었을 때만 함수 생성
 
   // 여기서 useMemo를 추가해보자!!
@@ -43,7 +47,7 @@ const Average = () => {
   return (
     <div>
       {/* input에 들어오는 value는 number이고 */}
-      <input value={number} onChange={onChange} />
+      <input value={number} onChange={onChange} ref={inputEl} />
       {/* 버튼 클릭하면 onInsert 함수 실행. list 업데이트. */}
       <button onClick={onInsert}>등록</button>
       <ul>
