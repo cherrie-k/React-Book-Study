@@ -2,9 +2,10 @@
   text-align: center;
 }
 
+/* App 안에 들어 있는 .logo */
 .App-logo {
+  animation: App logo-spin infinite 20s linear;
   height: 40vmin;
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,7 +14,9 @@
   }
 }
 
-.App-header {
+/* .App 안에 있는 header. 원래는 .App-header였고 헤더의 클래스네임이 App-header로 정의돼있었음 */
+/* header 클래스가 아닌 header 태그 자체에 스타일을 적용하기 때문에 . 생략 */
+.App header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -24,7 +27,8 @@
   color: white;
 }
 
-.App-link {
+/* .App 안에 있는 a 태그 */
+.App a {
   color: #61dafb;
 }
 
