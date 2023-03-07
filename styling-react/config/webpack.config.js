@@ -524,8 +524,10 @@ module.exports = function (webpackEnv) {
                   loader: require.resolve("sass-loader"),
                   options: {
                     sassOptions: {
-                      includePaths: [paths.appSrc + "styles"],
+                      includePaths: [paths.appSrc + "/styles"],
                     },
+                    // 이렇게 additionalData 설정하면 모든 scss 파일에서 utils.scss 자동으로 불러옴. 그래서 Sass에서 맨 윗줄에 있는 import 구문 지워도 정상 작동 함
+                    additionalData: "@import 'utils';",
                   },
                 }),
               // Don't consider CSS imports dead code even if the
